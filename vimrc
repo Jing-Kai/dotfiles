@@ -1,38 +1,40 @@
 "[ appearance ]
-	set t_Co=256
-	set background=dark
+  set t_Co=256
+  set background=dark
   colorscheme solarized
   let g:solarized_termtrans=1
 
 "[ general ]
-	set ruler
-	set cursorline
-	set hlsearch
+  set ruler
+  set cursorline
+  set hlsearch
   set nocompatible              " be iMproved, required
-	set showcmd
-	set autoread
-	set showmatch
-	set showmode
+  set showcmd
+  set autoread
+  set showmatch
+  set showmode
   set number
   " Enable mouse in all modes
   set mouse=a
   " Start scrolling three lines before the horizontal window border
-	set scrolloff=3
-	set history=50
+  set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+  set scrolloff=3
+  set history=50
   set shortmess=atI
-	syntax on
+  syntax on
   filetype off                  " required
 
 "[ editing ]
-	set textwidth=80
-	set tabstop=2
-	set shiftwidth=2
-	set expandtab
-	set autoindent
-	set backspace=indent,eol,start
-	set clipboard=unnamed
+  set textwidth=80
+  set expandtab
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+  set autoindent
+  set backspace=indent,eol,start
+  set clipboard=unnamed
 
-	let python_highlight_all = 1
+  let python_highlight_all = 1
 
 " Centralize backups, swapfiles and undo history
   set backupdir=~/.vim/backups
@@ -46,52 +48,52 @@
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  :%s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 "[ tabbing ]
-	map <S-H> gT
-	map <S-L> gt
+  map <S-H> gT
+  map <S-L> gt
 
 "[ shortcut ]
-	let mapleader=","
-	let g:mapleader=","
-	" set ,/ turn off the highlight search
-	nmap <leader>/ :nohl<CR>
-	" allow multiple indentation/dedentation in visual mode
-	vnoremap < <gv
-	vnoremap > >gv
-	" :cd. change working directory to that of the current file
-	cmap cd. lcd %:p:h
-	nmap gf :tabedit <cfile><CR>
-	" Quickly edit/reload the vimrc file
-	nmap <silent> <leader>ev :e $MYVIMRC<CR>
-	nmap <silent> <leader>sv :so $MYVIMRC<CR>
-	" Quick to commadline
-	nnoremap ; :
-	nnoremap j gj
-	nnoremap k gk
-	nnoremap Y y$
-	" Easy window nevigation
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
-	nmap <silent> <leader>f :execute "vimgrep /" . expand("<cword>") . "/j *" <Bar> cw<CR>
+  let mapleader=","
+  let g:mapleader=","
+  " set ,/ turn off the highlight search
+  nmap <leader>/ :nohl<CR>
+  " allow multiple indentation/dedentation in visual mode
+  vnoremap < <gv
+  vnoremap > >gv
+  " :cd. change working directory to that of the current file
+  cmap cd. lcd %:p:h
+  nmap gf :tabedit <cfile><CR>
+  " Quickly edit/reload the vimrc file
+  nmap <silent> <leader>ev :e $MYVIMRC<CR>
+  nmap <silent> <leader>sv :so $MYVIMRC<CR>
+  " Quick to commadline
+  nnoremap ; :
+  nnoremap j gj
+  nnoremap k gk
+  nnoremap Y y$
+  " Easy window nevigation
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+  nmap <silent> <leader>f :execute "vimgrep /" . expand("<cword>") . "/j *" <Bar> cw<CR>
 
 
 "[ Bash like keys for the commadline ]
-	" Bash like keys for the command line
-	 cnoremap <C-A>      <Home>
-	 cnoremap <C-E>      <End>
-	 cnoremap <C-K>      <C-U>
+  " Bash like keys for the command line
+   cnoremap <C-A>      <Home>
+   cnoremap <C-E>      <End>
+   cnoremap <C-K>      <C-U>
 
 "[ lintr ]
     "https://github.com/jimhester/lintr#editors-setup
@@ -111,21 +113,21 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 
 "[ status ]
-	set laststatus=2
+  set laststatus=2
 
-	set statusline=   " clear the statusline for when vimrc is reloaded
-	set statusline+=%-3.3n\                      " buffer number
-	set statusline+=%f\                          " file name
-	set statusline+=%h%m%r%w                     " flags
-	set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
-	set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-	set statusline+=%{&fileformat}]              " file format
-	set statusline+=%=                           " right align
-	set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
-	"set statusline+=%b,0x%-8B\                   " current char
-	"set statusline+=%5*                          " apply User 5 color
+  set statusline=   " clear the statusline for when vimrc is reloaded
+  set statusline+=%-3.3n\                      " buffer number
+  set statusline+=%f\                          " file name
+  set statusline+=%h%m%r%w                     " flags
+  set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+  set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+  set statusline+=%{&fileformat}]              " file format
+  set statusline+=%=                           " right align
+  set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+  "set statusline+=%b,0x%-8B\                   " current char
+  "set statusline+=%5*                          " apply User 5 color
    set statusline+=%{fugitive#statusline()}     " fugitive to show the git branch
-	set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+  set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 
 
@@ -200,22 +202,22 @@ function! UpdateVimRC()
  augroup END
 
 "[ plugin ]
-	" Use pathogen to easily modify the runtime path to include all
-	" plugins under the ~/.vim/bundle directory
+  " Use pathogen to easily modify the runtime path to include all
+  " plugins under the ~/.vim/bundle directory
     " call pathogen#helptags()
-	" call pathogen#runtime_append_all_bundles()
-	" Ominifunc
-	autocmd FileType python runtime! autoload/pythoncomplete.vim
+  " call pathogen#runtime_append_all_bundles()
+  " Ominifunc
+  autocmd FileType python runtime! autoload/pythoncomplete.vim
 
-	" For easymotion: change the default <leader>
-	let g:EasyMotion_leader_key = 'f'
+  " For easymotion: change the default <leader>
+  let g:EasyMotion_leader_key = 'f'
 
-	" For the color of Screen in terminal
-	let vimrplugin_screenplugin = 0
+  " For the color of Screen in terminal
+  let vimrplugin_screenplugin = 0
 
 "[ NERDTree setting ]
-	nmap <leader>n :NERDTree<CR>
-	let NERDTreeIgnore=['\.pyc$', '\.aux$', '.pdf$', ',log$', '\~$', '\.swp']
+  nmap <leader>n :NERDTree<CR>
+  let NERDTreeIgnore=['\.pyc$', '\.aux$', '.pdf$', ',log$', '\~$', '\.swp']
 
 "[ TagBar setting ]
-	nmap <F8> :TagbarToggle<CR>
+  nmap <F8> :TagbarToggle<CR>
