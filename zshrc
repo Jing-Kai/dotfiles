@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
@@ -10,21 +10,22 @@ eval "$(pyenv virtualenv-init -)"
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kae/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # command line prompt on left hand side
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable virtualenv vcs vi_mode)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable virtualenv vcs vi_mode)
 
 # command line prompt on right hand side
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
 
-POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_MODE='nerdfont-complete'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,7 +82,7 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 plugins=(
   git
   virtualenv
-  virtualenvwrapper
+  #virtualenvwrapper
 )
 
 source $ZSH/oh-my-zsh.sh
