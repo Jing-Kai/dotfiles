@@ -124,59 +124,55 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
   set statusline+=%{&fileformat}]              " file format
   set statusline+=%=                           " right align
   set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
-  "set statusline+=%b,0x%-8B\                   " current char
-  "set statusline+=%5*                          " apply User 5 color
-   set statusline+=%{fugitive#statusline()}     " fugitive to show the git branch
+  "set statusline+=%{fugitive#statusline()}     " fugitive to show the git branch
   set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
-
-
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+"Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'wincent/command-t.git'
+"Plugin 'wincent/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 " Nerd Tree
-Plugin 'scrooloose/nerdtree.git'
+"Plugin 'scrooloose/nerdtree.git'
 " Syntastic. Syntax checking hacks for vim
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 " Nerd Tree plugin (git)
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Easy Motion
-Plugin 'easymotion/vim-easymotion'
+"Plugin 'easymotion/vim-easymotion'
 " vim-scala
-Plugin 'derekwyatt/vim-scala'
+"Plugin 'derekwyatt/vim-scala'
 " Surround
-Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-surround'
 " Python autoindent
-Plugin 'vim-script/indentpython'
+"Plugin 'vim-script/indentpython'
 " Python YMC
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-script/Syntastic'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'vim-script/Syntastic'
 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
